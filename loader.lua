@@ -12,6 +12,7 @@ local ok, result = pcall(function()
 end)
 
 if ok and result then
+    if result:byte(1) == 239 then result = result:sub(4) end
     local fn, err = loadstring(result)
     if fn then
         fn()
